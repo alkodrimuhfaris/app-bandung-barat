@@ -46,9 +46,9 @@ export default function SettingTabbed({navigation}) {
           </View>
         </View>
         <View style={styles.menuWrapper}>
-          {menuItem.map(val => {
+          {menuItem.map((val, key) => {
             return (
-              <TouchableOpacity style={styles.menuBottom}>
+              <TouchableOpacity key={key} style={styles.menuBottom}>
                 <Text>{val.name}</Text>
                 <Icon
                   type="FontAwesome5"

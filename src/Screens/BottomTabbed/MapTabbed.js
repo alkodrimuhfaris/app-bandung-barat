@@ -1,10 +1,23 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
+import detailArr from '../../Helpers/detailArray';
 
 const {height} = Dimensions.get('screen');
 
-export default function MapTabbed() {
+export default function MapTabbed({navigation}) {
+  const goToDetails = id => {
+    navigation.navigate('MapStack', {
+      screen: 'Detail',
+      params: {id},
+    });
+  };
   return (
     <View style={styles.parent}>
       <MapView
@@ -20,7 +33,13 @@ export default function MapTabbed() {
         <Text>This is search box</Text>
       </View>
       <View style={styles.searchContainer}>
-        <Text>This is search box</Text>
+        {detailArr.map((val, key) => {
+          return (
+            <TouchableOpacity key={key} onPress={() => goToDetails(val.id)}>
+              <Text>This is detail box</Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     </View>
   );
