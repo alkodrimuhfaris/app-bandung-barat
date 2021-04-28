@@ -10,9 +10,12 @@ import {Icon, Form, Item, Input, Label} from 'native-base';
 
 const {width} = Dimensions.get('screen');
 
-export default function SignUp() {
+export default function SignUp({navigation}) {
   const [seenPass, setSeenPass] = React.useState(false);
 
+  const doLogin = () => {
+    navigation.navigate('Login');
+  };
   return (
     <View style={styles.parent}>
       <Text style={styles.title}>Register</Text>
@@ -56,13 +59,13 @@ export default function SignUp() {
         </View>
       </Form>
       <View>
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity onPress={doLogin} style={styles.loginButton}>
           <Text style={styles.buttonText}>Daftar</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.loginWrapper}>
         <Text style={styles.loginText}>Sudah punya akun?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={doLogin}>
           <Text style={styles.loginLink}> login</Text>
         </TouchableOpacity>
       </View>

@@ -31,7 +31,7 @@ export default function BottomStackNav({navigation}) {
             return (
               <Icon
                 type="FontAwesome5"
-                name="map-marker-alt"
+                name="traffic-light"
                 style={styles.icon}
               />
             );
