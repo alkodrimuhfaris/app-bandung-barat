@@ -18,7 +18,7 @@ export default function WelcomeScreen({navigation}) {
         source={welcomeImage}
       />
       <Text style={styles.greetingMessage}>
-        Your guide to{'\n'}Bandung Barat
+        Your guide to{'\n'}Kabupaten Bandung
       </Text>
       <View>
         <TouchableOpacity onPress={GoLogin} style={styles.loginButton}>
